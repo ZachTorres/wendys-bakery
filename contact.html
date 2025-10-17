@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Wendy's Whisk & Wonder</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #2C2C2C; background: #FFFFFF; overflow-x: hidden; }
+        .header { position: sticky; top: 0; z-index: 1000; background: white; box-shadow: 0 4px 20px rgba(255, 92, 141, 0.1); }
+        .announcement-bar { background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%); color: white; padding: 12px 20px; text-align: center; font-weight: 600; }
+        .navbar { padding: 20px 0; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo img { width: 60px; height: 60px; }
+        .logo-text h1 { font-size: 1.8rem; font-weight: 900; color: #FF5C8D; font-family: 'Playfair Display', serif; }
+        .tagline { font-size: 0.9rem; color: #5A5A5A; font-weight: 600; }
+        .nav-menu { display: flex; list-style: none; gap: 35px; align-items: center; }
+        .nav-link { text-decoration: none; color: #2C2C2C; font-weight: 600; font-size: 1.05rem; transition: color 0.3s; }
+        .nav-link:hover { color: #FF5C8D; }
+        .contact-section { background: linear-gradient(135deg, #FFE5CA 0%, #FFF8F0 100%); padding: 80px 40px; min-height: 80vh; }
+        .contact-container { max-width: 1200px; margin: 0 auto; }
+        .page-title { font-size: 4rem; color: #FF5C8D; margin-bottom: 20px; font-weight: 900; font-family: 'Playfair Display', serif; text-align: center; }
+        .page-subtitle { font-size: 1.3rem; color: #5A5A5A; margin-bottom: 60px; text-align: center; }
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+        .contact-info { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(255, 92, 141, 0.1); }
+        .contact-info h2 { font-size: 2rem; color: #FF5C8D; margin-bottom: 30px; font-weight: 700; font-family: 'Playfair Display', serif; }
+        .info-item { display: flex; align-items: start; gap: 20px; margin-bottom: 30px; }
+        .info-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; flex-shrink: 0; }
+        .info-details h3 { color: #2C2C2C; font-size: 1.2rem; margin-bottom: 8px; font-weight: 600; }
+        .info-details p { color: #5A5A5A; line-height: 1.6; }
+        .info-details a { color: #FF5C8D; text-decoration: none; transition: color 0.3s; }
+        .info-details a:hover { color: #FF8B94; }
+        .contact-form { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(255, 92, 141, 0.1); }
+        .contact-form h2 { font-size: 2rem; color: #FF5C8D; margin-bottom: 30px; font-weight: 700; font-family: 'Playfair Display', serif; }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 10px; color: #2C2C2C; font-weight: 600; font-size: 1.05rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #FFE5CA; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 1rem; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #FF5C8D; }
+        .form-group textarea { resize: vertical; min-height: 150px; }
+        .btn-submit { width: 100%; padding: 18px; background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%); color: white; border: none; border-radius: 25px; font-weight: 700; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.1rem; font-family: 'Poppins', sans-serif; }
+        .btn-submit:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 92, 141, 0.4); }
+        .social-connect { background: white; border-radius: 20px; padding: 40px; margin-top: 50px; box-shadow: 0 10px 30px rgba(255, 92, 141, 0.1); text-align: center; }
+        .social-connect h2 { font-size: 2rem; color: #FF5C8D; margin-bottom: 20px; font-weight: 700; font-family: 'Playfair Display', serif; }
+        .social-connect p { color: #5A5A5A; margin-bottom: 25px; font-size: 1.05rem; }
+        .social-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .social-btn { padding: 12px 30px; background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: 700; transition: all 0.3s; display: flex; align-items: center; gap: 10px; }
+        .social-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 92, 141, 0.4); }
+        .footer { background: #2C2C2C; color: white; padding: 40px 0 20px; text-align: center; }
+        .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 20px; }
+        .footer-social-link { color: white; font-size: 1.5rem; transition: color 0.3s; }
+        .footer-social-link:hover { color: #FF5C8D; }
+        .footer p { opacity: 0.7; }
+        @media (max-width: 768px) {
+            .page-title { font-size: 2.5rem; }
+            .page-subtitle { font-size: 1.1rem; }
+            .contact-content { grid-template-columns: 1fr; gap: 30px; }
+            .nav-menu { flex-wrap: wrap; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="announcement-bar"><span>New! Limited Edition Rose Macarons - Available This Week Only!</span></div>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="logo.svg" alt="Wendy's Whisk & Wonder Logo">
+                    <div class="logo-text"><h1>Wendy's Whisk & Wonder</h1><span class="tagline">Baked with Love</span></div>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="specials.html" class="nav-link">Specials</a></li>
+                    <li><a href="recipes.html" class="nav-link">Recipes</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="https://www.instagram.com/myers6263/" target="_blank" class="nav-link"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="contact-section">
+        <div class="contact-container">
+            <h1 class="page-title">Get In Touch</h1>
+            <p class="page-subtitle">We'd love to hear from you! Reach out for custom orders or questions</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-details">
+                            <h3>Email</h3>
+                            <p><a href="mailto:hello@wendyswhisk.com">hello@wendyswhisk.com</a></p>
+                            <p>We typically respond within 24 hours</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div class="info-details">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+                            <p>Monday - Saturday: 9am - 6pm</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fab fa-instagram"></i></div>
+                        <div class="info-details">
+                            <h3>Instagram</h3>
+                            <p><a href="https://www.instagram.com/myers6263/" target="_blank">@myers6263</a></p>
+                            <p>Follow for daily baking inspiration</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div class="info-details">
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 8am - 6pm</p>
+                            <p>Saturday: 9am - 4pm</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Smith">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your custom order or any questions you have..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div class="social-connect">
+                <h2>Connect With Us</h2>
+                <p>Stay updated with our latest creations, special offers, and baking tips!</p>
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/myers6263/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#" class="social-btn"><i class="fab fa-pinterest"></i> Pinterest</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-social">
+            <a href="https://www.instagram.com/myers6263/" target="_blank" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-pinterest"></i></a>
+        </div>
+        <p>&copy; 2025 Wendy's Whisk & Wonder. All rights reserved.</p>
+    </footer>
+</body>
+</html>

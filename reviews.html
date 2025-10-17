@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews | Wendy's Whisk & Wonder</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #2C2C2C; background: #FFFFFF; overflow-x: hidden; }
+        .header { position: sticky; top: 0; z-index: 1000; background: white; box-shadow: 0 4px 20px rgba(255, 92, 141, 0.1); }
+        .announcement-bar { background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%); color: white; padding: 12px 20px; text-align: center; font-weight: 600; }
+        .navbar { padding: 20px 0; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo img { width: 60px; height: 60px; }
+        .logo-text h1 { font-size: 1.8rem; font-weight: 900; color: #FF5C8D; font-family: 'Playfair Display', serif; }
+        .tagline { font-size: 0.9rem; color: #5A5A5A; font-weight: 600; }
+        .nav-menu { display: flex; list-style: none; gap: 35px; align-items: center; }
+        .nav-link { text-decoration: none; color: #2C2C2C; font-weight: 600; font-size: 1.05rem; transition: color 0.3s; }
+        .nav-link:hover { color: #FF5C8D; }
+        .reviews-section { background: linear-gradient(135deg, #FFE5CA 0%, #FFF8F0 100%); padding: 80px 40px; min-height: 80vh; }
+        .reviews-container { max-width: 1200px; margin: 0 auto; }
+        .page-title { font-size: 4rem; color: #FF5C8D; margin-bottom: 20px; font-weight: 900; font-family: 'Playfair Display', serif; text-align: center; }
+        .page-subtitle { font-size: 1.3rem; color: #5A5A5A; margin-bottom: 60px; text-align: center; }
+        .rating-summary { background: white; border-radius: 20px; padding: 40px; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(255, 92, 141, 0.1); text-align: center; }
+        .rating-number { font-size: 4rem; color: #FF5C8D; font-weight: 900; font-family: 'Playfair Display', serif; }
+        .rating-stars { font-size: 2rem; color: #FFD700; margin: 15px 0; }
+        .rating-count { color: #5A5A5A; font-size: 1.1rem; }
+        .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        .review-card { background: white; border-radius: 20px; padding: 35px; box-shadow: 0 10px 30px rgba(255, 92, 141, 0.1); transition: transform 0.3s; }
+        .review-card:hover { transform: translateY(-5px); }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+        .reviewer-info { display: flex; align-items: center; gap: 15px; }
+        .reviewer-avatar { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 700; }
+        .reviewer-details h3 { color: #2C2C2C; font-size: 1.3rem; margin-bottom: 5px; font-family: 'Playfair Display', serif; }
+        .reviewer-date { color: #999; font-size: 0.9rem; }
+        .review-stars { color: #FFD700; font-size: 1.3rem; }
+        .review-content { color: #5A5A5A; line-height: 1.8; font-size: 1.05rem; }
+        .review-product { margin-top: 20px; padding-top: 20px; border-top: 2px solid #FFE5CA; color: #FF5C8D; font-weight: 600; font-size: 0.95rem; }
+        .footer { background: #2C2C2C; color: white; padding: 40px 0 20px; text-align: center; }
+        .footer-social { display: flex; gap: 20px; justify-content: center; margin-bottom: 20px; }
+        .footer-social-link { color: white; font-size: 1.5rem; transition: color 0.3s; }
+        .footer-social-link:hover { color: #FF5C8D; }
+        .footer p { opacity: 0.7; }
+        @media (max-width: 768px) {
+            .page-title { font-size: 2.5rem; }
+            .page-subtitle { font-size: 1.1rem; }
+            .review-header { flex-direction: column; align-items: flex-start; }
+            .nav-menu { flex-wrap: wrap; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="announcement-bar"><span>New! Limited Edition Rose Macarons - Available This Week Only!</span></div>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="logo.svg" alt="Wendy's Whisk & Wonder Logo">
+                    <div class="logo-text"><h1>Wendy's Whisk & Wonder</h1><span class="tagline">Baked with Love</span></div>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="specials.html" class="nav-link">Specials</a></li>
+                    <li><a href="recipes.html" class="nav-link">Recipes</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="https://www.instagram.com/myers6263/" target="_blank" class="nav-link"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <h1 class="page-title">Customer Reviews</h1>
+            <p class="page-subtitle">See what our wonderful customers have to say!</p>
+            <div class="rating-summary">
+                <div class="rating-number">4.9</div>
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="rating-count">Based on 287 reviews</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">SJ</div>
+                            <div class="reviewer-details">
+                                <h3>Sarah Johnson</h3>
+                                <p class="reviewer-date">March 15, 2025</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-content">Absolutely phenomenal! I ordered the celebration cake for my daughter's birthday and it was beyond our expectations. Not only was it beautiful, but it tasted incredible. The buttercream was light and fluffy, and everyone asked where we got it from. Wendy is a true artist!</p>
+                    <p class="review-product"><i class="fas fa-birthday-cake"></i> Purchased: Celebration Cake</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">MC</div>
+                            <div class="reviewer-details">
+                                <h3>Michael Chen</h3>
+                                <p class="reviewer-date">March 12, 2025</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-content">The sourdough bread is the best I've ever had outside of France! The crust is perfectly crispy and the interior is soft with that perfect tang. I'm a regular customer now and I've already recommended Wendy's to all my friends. Worth every penny!</p>
+                    <p class="review-product"><i class="fas fa-bread-slice"></i> Purchased: Rustic Sourdough</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">ER</div>
+                            <div class="reviewer-details">
+                                <h3>Emily Rodriguez</h3>
+                                <p class="reviewer-date">March 10, 2025</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-content">I've tried every bakery in town, and Wendy's is hands down the best. The cookies are perfectly soft and chewy, and you can tell they're made with high-quality ingredients. The organic chocolate chips make such a difference! My kids ask for them every week.</p>
+                    <p class="review-product"><i class="fas fa-cookie"></i> Purchased: Artisan Cookies</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">DT</div>
+                            <div class="reviewer-details">
+                                <h3>David Thompson</h3>
+                                <p class="reviewer-date">March 8, 2025</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-content">The croissants are like heaven! Buttery, flaky, and absolutely delicious. I'm French and very picky about my pastries, but these are authentic and made with care. Wendy clearly knows what she's doing. I stop by every Saturday morning now!</p>
+                    <p class="review-product"><i class="fas fa-croissant"></i> Purchased: French Croissants</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">LP</div>
+                            <div class="reviewer-details">
+                                <h3>Lisa Patterson</h3>
+                                <p class="reviewer-date">March 5, 2025</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-content">I ordered the apple pie for Thanksgiving and it was the star of the dinner! The crust was perfectly flaky and the filling was just the right amount of sweet and tart. Everyone wanted seconds. Customer service was also excellent - Wendy is so friendly and accommodating!</p>
+                    <p class="review-product"><i class="fas fa-pie"></i> Purchased: Classic Apple Pie</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">JM</div>
+                            <div class="reviewer-details">
+                                <h3>Jennifer Martinez</h3>
+                                <p class="reviewer-date">March 2, 2025</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-content">The blueberry muffins are fantastic - moist, full of berries, and not too sweet. My only wish is that they came in larger boxes because they disappear so quickly in our house! Definitely recommend trying them.</p>
+                    <p class="review-product"><i class="fas fa-muffin"></i> Purchased: Blueberry Muffins</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-social">
+            <a href="https://www.instagram.com/myers6263/" target="_blank" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-pinterest"></i></a>
+        </div>
+        <p>&copy; 2025 Wendy's Whisk & Wonder. All rights reserved.</p>
+    </footer>
+</body>
+</html>

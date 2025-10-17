@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Specials | Wendy's Whisk & Wonder</title>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #2C2C2C;
+            background: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 4px 20px rgba(255, 92, 141, 0.1);
+        }
+
+        .announcement-bar {
+            background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%);
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .navbar {
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #FF5C8D;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #5A5A5A;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #2C2C2C;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #FF5C8D;
+        }
+
+        /* Specials Section */
+        .specials-section {
+            background: linear-gradient(135deg, #FFE5CA 0%, #FFF8F0 100%);
+            padding: 80px 40px;
+            min-height: 80vh;
+        }
+
+        .specials-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 4rem;
+            color: #FF5C8D;
+            margin-bottom: 20px;
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #5A5A5A;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .specials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .special-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 92, 141, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .special-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .special-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            z-index: 10;
+            font-size: 0.9rem;
+        }
+
+        .special-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .special-content {
+            padding: 35px;
+        }
+
+        .special-title {
+            font-size: 1.8rem;
+            color: #2C2C2C;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .special-description {
+            color: #5A5A5A;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .special-pricing {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .original-price {
+            font-size: 1.3rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .special-price {
+            font-size: 2rem;
+            color: #FF5C8D;
+            font-weight: 700;
+        }
+
+        .countdown-timer {
+            background: #FFE5CA;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #5A5A5A;
+            margin-bottom: 8px;
+        }
+
+        .countdown-time {
+            font-size: 1.5rem;
+            color: #FF5C8D;
+            font-weight: 700;
+        }
+
+        .btn-special {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.05rem;
+        }
+
+        .btn-special:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 92, 141, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2C2C2C;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social-link:hover {
+            color: #FF5C8D;
+        }
+
+        .footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .specials-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="announcement-bar">
+            <span>New! Limited Edition Rose Macarons - Available This Week Only!</span>
+        </div>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="logo.svg" alt="Wendy's Whisk & Wonder Logo">
+                    <div class="logo-text">
+                        <h1>Wendy's Whisk & Wonder</h1>
+                        <span class="tagline">Baked with Love</span>
+                    </div>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="specials.html" class="nav-link">Specials</a></li>
+                    <li><a href="recipes.html" class="nav-link">Recipes</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="https://www.instagram.com/myers6263/" target="_blank" class="nav-link"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Specials Section -->
+    <section class="specials-section">
+        <div class="specials-container">
+            <h1 class="page-title">Weekly Specials</h1>
+            <p class="page-subtitle">Limited time offers - grab them while they last!</p>
+
+            <div class="specials-grid">
+                <!-- Special 1 -->
+                <div class="special-card">
+                    <div class="special-badge">30% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=800" alt="Rose Macarons" class="special-image">
+                    <div class="special-content">
+                        <h3 class="special-title">Rose Macarons Box</h3>
+                        <p class="special-description">Elegant French macarons infused with rose water and filled with raspberry ganache. Box of 12.</p>
+                        <div class="special-pricing">
+                            <span class="original-price">$28.99</span>
+                            <span class="special-price">$19.99</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="countdown-label">Offer ends in:</div>
+                            <div class="countdown-time">3 Days 14:23:45</div>
+                        </div>
+                        <button class="btn-special"><i class="fas fa-shopping-cart"></i> Claim This Deal</button>
+                    </div>
+                </div>
+
+                <!-- Special 2 -->
+                <div class="special-card">
+                    <div class="special-badge">BUY 1 GET 1</div>
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800" alt="Cinnamon Rolls" class="special-image">
+                    <div class="special-content">
+                        <h3 class="special-title">Cinnamon Rolls</h3>
+                        <p class="special-description">Soft, fluffy cinnamon rolls with cream cheese frosting. Buy one dozen, get another dozen free!</p>
+                        <div class="special-pricing">
+                            <span class="original-price">$34.98</span>
+                            <span class="special-price">$17.49</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="countdown-label">Offer ends in:</div>
+                            <div class="countdown-time">5 Days 08:12:33</div>
+                        </div>
+                        <button class="btn-special"><i class="fas fa-shopping-cart"></i> Claim This Deal</button>
+                    </div>
+                </div>
+
+                <!-- Special 3 -->
+                <div class="special-card">
+                    <div class="special-badge">40% OFF</div>
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800" alt="Chocolate Tart" class="special-image">
+                    <div class="special-content">
+                        <h3 class="special-title">Chocolate Ganache Tart</h3>
+                        <p class="special-description">Rich dark chocolate ganache in a buttery tart shell, topped with gold leaf. Perfect for celebrations!</p>
+                        <div class="special-pricing">
+                            <span class="original-price">$32.99</span>
+                            <span class="special-price">$19.79</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="countdown-label">Offer ends in:</div>
+                            <div class="countdown-time">2 Days 19:45:12</div>
+                        </div>
+                        <button class="btn-special"><i class="fas fa-shopping-cart"></i> Claim This Deal</button>
+                    </div>
+                </div>
+
+                <!-- Special 4 -->
+                <div class="special-card">
+                    <div class="special-badge">WEEKEND ONLY</div>
+                    <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=800" alt="Assorted Pastries" class="special-image">
+                    <div class="special-content">
+                        <h3 class="special-title">Pastry Sampler Box</h3>
+                        <p class="special-description">Assorted selection of our finest pastries including croissants, danishes, and pain au chocolat.</p>
+                        <div class="special-pricing">
+                            <span class="original-price">$29.99</span>
+                            <span class="special-price">$22.49</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="countdown-label">Offer ends in:</div>
+                            <div class="countdown-time">1 Day 23:59:58</div>
+                        </div>
+                        <button class="btn-special"><i class="fas fa-shopping-cart"></i> Claim This Deal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-social">
+            <a href="https://www.instagram.com/myers6263/" target="_blank" class="footer-social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="footer-social-link">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="footer-social-link">
+                <i class="fab fa-pinterest"></i>
+            </a>
+        </div>
+        <p>&copy; 2025 Wendy's Whisk & Wonder. All rights reserved.</p>
+    </footer>
+</body>
+</html>

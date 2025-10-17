@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Wendy's Whisk & Wonder</title>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #2C2C2C;
+            background: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 4px 20px rgba(255, 92, 141, 0.1);
+        }
+
+        .announcement-bar {
+            background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%);
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .navbar {
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #FF5C8D;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #5A5A5A;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #2C2C2C;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #FF5C8D;
+        }
+
+        /* Shop Section */
+        .shop-section {
+            background: linear-gradient(135deg, #FFE5CA 0%, #FFF8F0 100%);
+            padding: 80px 40px;
+            min-height: 80vh;
+        }
+
+        .shop-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 4rem;
+            color: #FF5C8D;
+            margin-bottom: 20px;
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #5A5A5A;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 92, 141, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 92, 141, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 30px;
+        }
+
+        .product-title {
+            font-size: 1.6rem;
+            color: #2C2C2C;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-description {
+            color: #5A5A5A;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            color: #FF5C8D;
+            font-weight: 700;
+        }
+
+        .btn-cart {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-cart:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 92, 141, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2C2C2C;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social-link:hover {
+            color: #FF5C8D;
+        }
+
+        .footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="announcement-bar">
+            <span>New! Limited Edition Rose Macarons - Available This Week Only!</span>
+        </div>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="logo.svg" alt="Wendy's Whisk & Wonder Logo">
+                    <div class="logo-text">
+                        <h1>Wendy's Whisk & Wonder</h1>
+                        <span class="tagline">Baked with Love</span>
+                    </div>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li><a href="specials.html" class="nav-link">Specials</a></li>
+                    <li><a href="recipes.html" class="nav-link">Recipes</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="https://www.instagram.com/myers6263/" target="_blank" class="nav-link"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Shop Section -->
+    <section class="shop-section">
+        <div class="shop-container">
+            <h1 class="page-title">Our Products</h1>
+            <p class="page-subtitle">Handcrafted daily with premium ingredients and lots of love</p>
+
+            <div class="product-grid">
+                <!-- Product 1: Cookies -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800" alt="Artisan Cookies" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Artisan Cookies</h3>
+                        <p class="product-description">Soft-baked cookies with chocolate chips, oats, and a hint of vanilla. Perfect for any occasion.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$12.99</span>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Bread -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800" alt="Artisan Bread" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Rustic Sourdough</h3>
+                        <p class="product-description">Traditional sourdough with a crispy crust and soft interior. Made with wild yeast starter.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$8.99</span>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Cakes -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800" alt="Celebration Cake" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Celebration Cake</h3>
+                        <p class="product-description">Multi-layer vanilla cake with buttercream frosting. Custom decorations available upon request.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$45.99</span>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Croissants -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800" alt="French Croissants" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">French Croissants</h3>
+                        <p class="product-description">Buttery, flaky croissants made with European butter. Baked fresh every morning.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$4.99</span>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: Pies -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1535920527002-b35e96722eb9?w=800" alt="Homemade Pies" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Classic Apple Pie</h3>
+                        <p class="product-description">Traditional apple pie with cinnamon and a buttery, flaky crust. Serves 8-10 people.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$24.99</span>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6: Muffins -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=800" alt="Blueberry Muffins" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Blueberry Muffins</h3>
+                        <p class="product-description">Moist muffins bursting with fresh blueberries and topped with a sweet crumb topping.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$16.99</span>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-social">
+            <a href="https://www.instagram.com/myers6263/" target="_blank" class="footer-social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="footer-social-link">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="footer-social-link">
+                <i class="fab fa-pinterest"></i>
+            </a>
+        </div>
+        <p>&copy; 2025 Wendy's Whisk & Wonder. All rights reserved.</p>
+    </footer>
+</body>
+</html>
