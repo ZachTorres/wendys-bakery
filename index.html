@@ -26,11 +26,38 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <link rel="stylesheet" href="styles.css?v=2.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=3.0">
+    <style>
+        /* Force load critical styles inline */
+        :root {
+            --primary-pink: #FF5C8D !important;
+            --primary-coral: #FF8B94 !important;
+            --primary-peach: #FFB3A7 !important;
+            --cream: #FFF5E4 !important;
+            --cream-dark: #FFE5CA !important;
+        }
+        body {
+            font-family: 'Poppins', sans-serif !important;
+            color: #2C2C2C !important;
+            background-color: #FFFFFF !important;
+        }
+        .hero {
+            background: linear-gradient(135deg, #FFE5CA 0%, #FFD4C4 50%, #FFC7BC 100%) !important;
+        }
+        .hero-title {
+            color: #FF5C8D !important;
+            font-size: 5.5rem !important;
+            font-weight: 900 !important;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #FF5C8D 0%, #FF8B94 100%) !important;
+            color: white !important;
+        }
+    </style>
 
     <!-- Schema.org markup for local business -->
     <script type="application/ld+json">
